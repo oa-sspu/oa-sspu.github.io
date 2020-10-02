@@ -1,0 +1,2032 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iframe</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="./css/default_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/e8tabs1_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/excelHtml_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/ext-all_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/hoverBtn_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/init_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/jquery_dialog_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/lanlv_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/MenuMatic_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/request_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/requestIframe_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/rp_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/ueditorext_wf_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/WdatePicker_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/weaver-ext_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/Weaver_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/worflowmessage_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/wui_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/xtheme-gray_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/jNice_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/seachBody_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/workflowsign_wev8.css" type="text/css">
+    <link rel="stylesheet" href="./css/selectForK13_wev8.css" type="text/css">
+
+    <style>
+        * {
+            font-family: "Microsoft YaHei" !important;
+        }
+        .WdateDiv *{font-size:9pt;}
+
+        .WdateDiv .NavImg a{
+            display:block;
+            cursor:pointer;
+            height:16px;
+            width:16px;
+        }
+
+        .WdateDiv .NavImgll a{
+            float:left;
+        }
+        .WdateDiv .NavImgl a{
+            float:left;
+        }
+        .WdateDiv .NavImgr a{
+            float:right;
+        }
+        .WdateDiv .NavImgrr a{
+            float:right;
+        }
+
+        .WdateDiv #dpTitle{
+            height:24px;
+            margin-bottom:2px;
+            padding:1px;
+        }
+
+        .WdateDiv .yminput{
+            margin-top:2px;
+            text-align:center;
+            height:20px;
+            border:0px;
+            width:50px;
+            cursor:pointer;
+        }
+
+        .WdateDiv .yminputfocus{
+            margin-top:2px;
+            text-align:center;
+            font-weight:bold;
+            height:20px;
+            color:blue;
+            border:#ccc 1px solid;
+            width:50px;
+        }
+
+        .WdateDiv .menuSel{
+            z-index:1;
+            position:absolute;
+            background-color:#FFFFFF;
+            border:#ccc 1px solid;
+            display:none;
+        }
+
+        .WdateDiv .menu{
+            cursor:pointer;
+            background-color:#fff;
+        }
+
+        .WdateDiv .menuOn{
+            cursor:pointer;
+            background-color:#BEEBEE;
+        }
+
+        .WdateDiv .invalidMenu{
+            color:#aaa;
+        }
+
+        .WdateDiv .YMenu{
+            margin-top:20px;
+
+        }
+
+        .WdateDiv .MMenu{
+            margin-top:20px;
+            *width:62px;
+        }
+
+        .WdateDiv .hhMenu{
+            margin-top:-90px;
+            margin-left:26px;
+        }
+
+        .WdateDiv .mmMenu{
+            margin-top:-46px;
+            margin-left:26px;
+        }
+
+        .WdateDiv .ssMenu{
+            margin-top:-24px;
+            margin-left:26px;
+        }
+
+        .WdateDiv .Wweek {
+            text-align:center;
+            background:#DAF3F5;
+            border-right:#BDEBEE 1px solid;
+        }
+
+        .WdateDiv .MTitle{
+            background-color:#BDEBEE;
+        }
+        .WdateDiv .WdayTable2{
+            border-collapse:collapse;
+            border:#c5d9e8 1px solid;
+        }
+        .WdateDiv .WdayTable2 table{
+            border:0;
+        }
+
+        .WdateDiv .WdayTable{
+            line-height:20px;
+            border:#c5d9e8 1px solid;
+        }
+        .WdateDiv .WdayTable td{
+            text-align:center;
+        }
+
+        .WdateDiv .Wday{
+            cursor:pointer;
+        }
+
+        .WdateDiv .WdayOn{
+            cursor:pointer;
+            background-color:#C0EBEF;
+        }
+
+        .WdateDiv .Wwday{
+            cursor:pointer;
+            color:#FF2F2F;
+        }
+
+        .WdateDiv .WwdayOn{
+            cursor:pointer;
+            color:#000;
+            background-color:#C0EBEF;
+        }
+        .WdateDiv .Wtoday{
+            cursor:pointer;
+            color:blue;
+        }
+        .WdateDiv .Wselday{
+            background-color:#A9E4E9;
+        }
+        .WdateDiv .WspecialDay{
+            background-color:#66F4DF;
+        }
+
+        .WdateDiv .WotherDay{
+            cursor:pointer;
+            color:#6A6AFF;
+        }
+
+        .WdateDiv .WotherDayOn{
+            cursor:pointer;
+            background-color:#C0EBEF;
+        }
+
+        .WdateDiv .WinvalidDay{
+            color:#aaa;
+        }
+
+        .WdateDiv #dpTime{
+            float:left;
+            margin-top:3px;
+            margin-right:30px;
+        }
+
+        .WdateDiv #dpTime #dpTimeStr{
+            margin-left:1px;
+        }
+
+        .WdateDiv #dpTime input{
+            width:18px;
+            height:20px;
+            text-align:center;
+            border:#ccc 1px solid;
+        }
+
+        .WdateDiv #dpTime .tB{
+            border-right:0px;
+        }
+
+        .WdateDiv #dpTime .tE{
+            border-left:0;
+            border-right:0;
+        }
+
+        .WdateDiv #dpTime .tm{
+            width:7px;
+            border-left:0;
+            border-right:0;
+        }
+
+        .WdateDiv #dpTime #dpTimeUp{
+            height:10px;
+            width:13px;
+            border:0px;
+        }
+
+        .WdateDiv #dpTime #dpTimeDown{
+            height:10px;
+            width:13px;
+            border:0px;
+        }
+
+        .WdateDiv #dpQS {
+            float:left;
+            margin-right:3px;
+            margin-top:3px;
+            width:20px;
+            height:20px;
+            cursor:pointer;
+        }
+        .WdateDiv #dpControl {
+            text-align:right;
+        }
+        .WdateDiv .dpButton{
+            height:20px;
+            width:45px;
+            border:#ccc 1px solid;
+            margin-top:2px;
+            margin-right:1px;
+        }
+        .b-m-idisable .b-m-arrow
+        {
+            background:none;
+        }
+        .b-m-item img, .b-m-ifocus img, .b-m-idisable img {
+            margin-left: 8px;
+        }
+        .b-m-idisable img {
+            visibility:hidden;
+        }
+        .b-m-ibody button{
+            text-align:left;
+            padding:0;
+            height:22px;
+            border:0px;
+            background:transparent;
+            font-size:12px;
+            vertical-align:middle;
+            padding-left:8px;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            white-space:nowrap;
+        }
+        .x-column-tree .x-tree-node {
+            zoom:1;
+        }
+        .x-column-tree .x-tree-node-el {
+            zoom:1;
+        }
+        .x-column-tree .x-tree-selected {
+            background: #d9e8fb;
+        }
+        .x-column-tree  .x-tree-node a {
+            line-height:18px;
+            vertical-align:middle;
+        }
+        .x-column-tree  .x-tree-node a span{
+
+        }
+        .x-column-tree  .x-tree-node .x-tree-selected a span{
+            background:transparent;
+            color:#000;
+        }
+    </style>
+    <style>
+        .excelOuterTable .td_etype_3 a {
+            color: #123885 !important;
+        }
+
+        .excelOuterTable .td_etype_3 a:hover {
+            color: red !important;
+        }
+
+        .mainTd_1_0 * {
+            font-size: 14pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mainTd_1_0 {
+            vertical-align: middle;
+            text-align: center;
+            word-break: break-all;
+            word-wrap: break-word;
+            height: 30px;
+            width: 900.0px;
+        }
+
+        .mainTd_3_0 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_3_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_3_1 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_3_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_3_2 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_3_2 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_3_3 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_3_3 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_4_0 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_4_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_4_1 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_4_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_4_2 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_4_2 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_4_3 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_4_3 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_6_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_6_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_6_1 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_6_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_5_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_5_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_5_1 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_5_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 750.0px;
+        }
+
+        .mainTd_6_2 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_6_2 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_6_3 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_6_3 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_7_0 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_7_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_7_1 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_7_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 750.0px;
+        }
+
+        .mainTd_8_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_8_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_8_2 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_8_2 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_8_3 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_8_3 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mc_6_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+        .mc_6_1 * {
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_8_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_10_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_10_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_10_1 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_10_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 750.0px;
+        }
+
+        .mainTd_11_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_11_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_11_1 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_11_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 750.0px;
+        }
+
+        .mainTd_13_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_13_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_12_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_12_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_12_1 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_12_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 750.0px;
+        }
+
+        .mainTd_13_1 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_13_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_13_2 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_13_2 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_13_3 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_13_3 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 300.0px;
+        }
+
+        .mainTd_14_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_14_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_14_1 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_14_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 750.0px;
+        }
+
+        .mc_4_0 * {
+            color: black !important;
+            font-size: 9pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mc_4_0 {
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            vertical-align: middle;
+            color: black !important;
+            font-size: 9pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mc_4_1 * {
+            font-size: 9pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mc_4_1 {
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            vertical-align: middle;
+            font-size: 9pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mainTd_15_0 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 900.0px;
+        }
+
+        .mc_5_0 * {
+            color: black !important;
+            font-size: 9pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mc_5_0 {
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            vertical-align: middle;
+            color: black !important;
+            font-size: 9pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mc_5_1 * {
+            font-size: 9pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mc_5_1 {
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            vertical-align: middle;
+            font-size: 9pt !important;
+            font-family: Microsoft YaHei !important;
+            font-weight: bold;
+        }
+
+        .mainTd_16_0 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 900.0px;
+        }
+
+        .mainTd_9_0 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_9_0 {
+            background: #e7f3fc !important;
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 150.0px;
+        }
+
+        .mainTd_9_1 * {
+            color: black !important;
+            font-size: 9pt;
+            font-family: Microsoft YaHei;
+        }
+
+        .mainTd_9_1 {
+            vertical-align: middle;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-align: left;
+            padding-left: 4.0px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #90badd;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #90badd;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #90badd;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #90badd;
+            height: 30px;
+            width: 750.0px;
+        }
+    </style>
+    <style>
+        #toolbarmenudiv .x-btn-mc em button {
+            height: 20px;
+        }
+
+        #toolbarmenuCoverdiv .x-btn-mc em button {
+            height: 20px;
+        }
+        .tab_menu li a {
+            background: #fff !important;
+        }
+    </style>
+    <style>
+        .sbOptions li:hover {
+            margin: 0px;
+            padding: 0 7px;
+            background: #fff;
+            color: #72ACE8 !important;
+        }
+
+        .sbOptions li a:hover {
+            color: #72ACE8 !important;
+        }
+
+        .sbOptions li, .asOptions li {
+            padding: 0 7px;
+            height: auto !important;
+            line-height: 12px;
+        }
+
+        .ViewForm A {
+            color: #72ACE8;
+        }
+
+        .ViewForm A:link {
+            color: #72ACE8;
+        }
+
+        .current {
+            border-bottom: 2px solid #089bfe;
+        }
+
+        .doOver {
+            overflow: hidden;
+            width: 50px;
+        }
+
+        .tbItm {
+            overflow: hidden;
+        }
+        #signall a {
+            color: #123885
+        }
+
+        #signall a:hover {
+            color: red !important;
+        }
+        .department_href {
+            color: #9b9b9b !important;
+        }
+
+        .department_href:hover {
+            color: red !important;
+        }
+    </style>
+
+    <script>
+        function submit() {
+            $("#jsubmit").hide();
+            $(".jedit").each(function(){
+                var e = $(this).next();
+                e.html($(this).val());
+                $(this).hide();
+            });
+
+            $(".jselect").each(function(){
+                var e = $(this).next();
+                e.html($(this).find("option:selected").text());
+                $(this).hide();
+                e.show();
+            });
+            $(".jshow").each(function(){
+                $(this).show();
+            });
+            $(".jname").each(function(){
+                $(this).html($("#jname").html());
+            });
+            $(".jclass").each(function(){
+                $(this).html($("#jclass").html());
+            });
+            $(".jteacher").each(function(){
+                $(this).html($("#jteacher").html());
+            });
+        }
+    </script>
+</head>
+<body style="height: 100%">
+
+<table class="excelOuterTable tablefixed">
+    <tbody>
+    <tr>
+        <td align="center">
+            <table class="excelMainTable tablefixed" style=" width:900px; ">
+                <tbody>
+                <tr name="controlwidth" style="height:0px !important;">
+                    <td width="150px"></td>
+                    <td width="300px"></td>
+                    <td width="150px"></td>
+                    <td width="300px"></td>
+                </tr>
+                <tr style="height:30px;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="height:30px;">
+                    <td colspan="4" class="td_edesign td_etype_1 mainTd_1_0">
+                        <div>
+                            <span>学生出校申请与审批流程</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_3_0">
+                        <div>
+                            <span>姓名</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_3_1" id="field11237_tdwrap">
+                        <div>
+                            <span id="field11237span" style="word-break:break-all;word-wrap:break-word">
+                                <input class="jedit" type="text" value="姓名">
+                                <a id="jname" style="display: none" class="jshow">姓名</a>
+                            </span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_2 mainTd_3_2">
+                        <div>
+                            <span>学号</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_3_3" id="field11238_tdwrap">
+                        <div>
+                            <input class="jedit" type="text" value="20000000000">
+                            <span id="field11238span" class="jshow" style="display:none;word-break:break-all;word-wrap:break-word;">20100000000</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_4_0">
+                        <div>
+                            <span>班级</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_4_1" id="field11239_tdwrap">
+                        <div>
+                            <input class="jedit" type="text" value="00软工A0">
+                            <span id="jclass" class="jshow" style="display:none;word-break:break-all;word-wrap:break-word;">00软工A0</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_2 mainTd_4_2">
+                        <div>
+                            <span>学部（院）</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_4_3" id="field11240_tdwrap">
+                        <div>
+                            <input class="jedit" type="text" value="工学部计算机与信息工程学院">
+                            <span id="field11240span" class="jshow" style="display:none;word-break:break-all;word-wrap:break-word;">工学部计算机与信息工程学院</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_5_0">
+                        <div>
+                            <span>学生类型</span>
+                        </div>
+                    </td>
+                    <td colspan="3" class="td_edesign td_etype_3 mainTd_5_1" id="field11404_tdwrap">
+                        <div>
+                            <select class="jselect" style="height:auto;">
+                                <option value="0">本专科生</option>
+                                <option value="1">研究生</option>
+                                <option value="2">新进研究生</option>
+                            </select>
+                            <span class="jshow" style="display: none;">本专科生</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_6_0">
+                        <div>
+                            <span>辅导员</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_6_1" id="field11783_tdwrap">
+                        <div>
+                            <span id="field11783span" style="word-break:break-all;word-wrap:break-word">
+                                <input class="jedit" type="text" value="辅导员姓名">
+                                <a class="jshow" id="jteacher" style="display: none;">辅导员姓名</a>
+                            </span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_2 mainTd_6_2">
+                        <div class="edesign_hide">
+                            <span>导师</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_6_3" id="field11405_tdwrap">
+                        <div class="edesign_hide">
+                            <span id="field11405span" style="word-break:break-all;word-wrap:break-word"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_7_0">
+                        <div>
+                            <span>出校去向</span>
+                        </div>
+                    </td>
+                    <td colspan="3" class="td_edesign td_etype_3 mainTd_7_1" id="field11241_tdwrap">
+                        <div>
+                            <input class="jedit" type="text" value="输入出校去向">
+                            <span id="field11241span" class="jshow" style="display:none;word-break:break-all;word-wrap:break-word;width:99%;"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_8_0">
+                        <div>
+                            <span>出行交通工具</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_13 mainTd_8_1">
+                        <div>
+                            <span id="field11304span" style="word-break:break-all;word-wrap:break-word">地铁</span>
+                            <span>（可多选）</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_2 mainTd_8_2">
+                        <div>
+                            <span>是否返校</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_8_3" id="field11343_tdwrap">
+                        <div>
+                            <span>返校</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_9_0">
+                        <div>
+                            <span>出校事由</span>
+                        </div>
+                    </td>
+                    <td colspan="3" class="td_edesign td_etype_3 mainTd_9_1" id="field11663_tdwrap">
+                        <div>
+                            <select class="jselect" style="height:auto;">
+                                <option value="0">外出就医</option>
+                                <option value="1">周末回家（在沪）</option>
+                                <option value="2">采购生活物资</option>
+                                <option value="3">外出实习</option>
+                                <option value="4">实习面试</option>
+                                <option value="5">周末兼职</option>
+                                <option value="6">其他</option>
+                            </select>
+                            <span  class="jshow" style="display: none;">外出实习</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_10_0">
+                        <div>
+                            <span>具体事由</span>
+                        </div>
+                    </td>
+                    <td colspan="3" class="td_edesign td_etype_3 mainTd_10_1" id="field11683_tdwrap">
+                        <div>
+                            <input class="jedit" type="text" value="请输入具体事由">
+                            <span id="field11683span" class="jshow" style="display:none;word-break:break-all;word-wrap:break-word;width:99%;"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_11_0">
+                        <div>
+                            <span>提交佐证附件</span>
+                        </div>
+                    </td>
+                    <td colspan="3" class="td_edesign td_etype_3 mainTd_11_1" id="field11249_tdwrap">
+
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_12_0">
+                        <div>
+                            <span>出校日期</span>
+                        </div>
+                    </td>
+                    <td colspan="3" class="td_edesign td_etype_3 mainTd_12_1" id="field11250_tdwrap">
+                        <div>
+                            <input class="jedit" type="text" value="2020-10-03">
+                            <span id="field11250span" class="jshow" style="display:none;word-break:break-all;word-wrap:break-word">2020-10-03</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_13_0">
+                        <div>
+                            <span>出校时间段</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_13_1" id="field11251_tdwrap">
+                        <div>
+                            <select class="jselect" style="height:auto;">
+                                <option value="0">6:00-12:00</option>
+                                <option value="1">12:00-18:00</option>
+                                <option value="2">18:00-22:00</option>
+                            </select>
+                            <span  class="jshow" style="display: none;">6:00-12:00</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_2 mainTd_13_2">
+                        <div>
+                            <span>返校时间段</span>
+                        </div>
+                    </td>
+                    <td class="td_edesign td_etype_3 mainTd_13_3" id="field11255_tdwrap">
+                        <div>
+                            <select class="jselect" style="height:auto;">
+                                <option value="0">6:00-12:00</option>
+                                <option value="1">12:00-18:00</option>
+                                <option value="2">18:00-22:00</option>
+                            </select>
+                            <span class="jshow" style="display: none;">18:00-22:00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td class="td_edesign td_etype_2 mainTd_14_0">
+                        <div>
+                            <span>目前健康状况</span>
+                        </div>
+                    </td>
+                    <td colspan="3" class="td_edesign td_etype_3 mainTd_14_1" id="field11259_tdwrap">
+                        <div>
+                            <span>良好</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr style="height:30px;">
+                    <td colspan="4" class="td_edesign td_etype_13 mainTd_15_0">
+                        <div>
+                            <span class="span_mc mc_4_0 " style="display:inline-block;">
+                                <span class="jNiceCheckbox_disabled jNiceChecked_disabled"></span>
+                            </span>
+                            <span class="span_mc mc_4_1 " style="display:inline-block;">
+                                <span id="field11261span" style="word-break:break-all;word-wrap:break-word;">本人承诺上述信息均属实，如有不实，愿承担由此引起的一切后果及法律责任。</span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px;">
+                    <td colspan="4" class="td_edesign td_etype_13 mainTd_16_0">
+                        <div>
+                            <span class="span_mc mc_5_0 " style="display:inline-block;">
+                                <input type="checkbox" class="Inputstyle jNiceHidden" value="1" disabled="" checked=""
+                                       onclick="" style="display: none; opacity: 0;">
+                                <span class="jNiceCheckbox_disabled jNiceChecked_disabled"></span>
+                            </span>
+
+                            <span class="span_mc mc_5_1 " style="display:inline-block;">
+                                <span id="field11263span" style="word-break:break-all;word-wrap:break-word;">本人承诺在外出期间做好个人防护工作，如有不适，将及时向辅导员报告。</span>
+                                <button id="jsubmit" onclick="submit()" style="width: 100px;height:30px;color: white;background-color: green">修改</button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="signblockbarclass" style="width: 100%;">
+    <ul class="signblockbarULclass">
+        <li class="current" id="oTDtype_0">
+            <a href="javascript:">流转意见</a>
+        </li>
+        <li style="color:#c6cddf;">|</li>
+        <li id="oTDtype_1">
+            <a href="javascript:">与我相关</a>
+        </li>
+    </ul>
+
+    <table align="right" style="height:44px;" cellpadding="0px" cellspacing="0px">
+        <tbody>
+        <tr width="100%">
+            <td width="100%">
+                <table style="height: 100%; table-layout: fixed; width: 100px;" id="toolBarTbl" cellpadding="0px"
+                       cellspacing="0px" width="100%" align="right">
+                    <tbody>
+                    <tr align="left">
+                        <td class="doOver" id="userTip" style="width: 50px; overflow: hidden;">
+                            <span style="display: block; width: 50px; height: 40px; background: url('img/suser_wev8.png') center 50% no-repeat scroll; position: relative;"
+                                  class="tbItm back-end backgroundPosition"></span>
+                        </td>
+
+                        <td id="lineshow" width="0px" align="center" style="display: table-cell;">
+                            <span style="color:#d7d7d7;">|</span>
+                        </td>
+
+                        <td class="doOver" id="qzhNav" style="width: 50px; overflow: hidden;">
+                            <span style="display: block; width: 50px; height: 40px; background: url('img/search_wev8.png') center 50% no-repeat scroll; position: relative;"
+                                  class="tbItm back-end backgroundPosition"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="signid_0" style="">
+    <input type="hidden" name="currentPageCnt1" value="2">
+    <input type="hidden" name="allItems1" value="2">
+    <input type="hidden" name="allPages1" value="1">
+    <input type="hidden" name="maxrequestlogid1" value="174762">
+
+    <table class="liststyle liststyle1" cellspacing="0" style="margin:0;width:100%;">
+        <tbody>
+            <tr height="10px">
+                <td colspan="2" style="background:#ffffff;"></td>
+            </tr>
+
+            <tr class="datadark" >
+                <td colspan="4" style="">
+                    <table style="background:#fff" width="100%" border="0" cellspacing="0" cellpadding="0" class="singleSignTbl">
+                        <tbody>
+                            <tr style="vertical-align: top;">
+                                <td width="27px"></td>
+
+                                <!--<td width="40px" align="left" class="userheadimg" style="display:none;background-color: transparent !important; border-bottom:1px solid #e7e7e7;">
+                                    &lt;!&ndash; 人员头像 &ndash;&gt;
+                                    <div style="margin-top: 5px;">
+                                        <img src="img/icon_w_wev8.jpg" style="width:30px;height:30px;line-height:30px;background-size: 30px;border-radius:20px;">
+                                    </div>
+                                </td>-->
+
+                                <td width="160px" align="left" style="color:#099cff;border-bottom:1px solid #e7e7e7; padding-bottom: 15px">
+                                    <div style="width:100px;">
+                                        <!-- 人员姓名 START -->
+                                        <span>
+                                            <div style="height:1px;"></div>
+                                            <a class="jteacher" href="javaScript;" style="color:#099cff">
+                                                辅导员姓名
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <p>
+                                        <a href="" target="_Blank" class="department_href">学生工作办公室</a>
+                                    </p>
+                                </td>
+
+                                <td name="signContentTd" style="background-color: transparent !important; color:#323232;border-bottom:1px solid #e7e7e7;word-break:break-all;">
+                                    <p style="font-size:12px;">
+                                        <span style="font-size: 12px;">同意</span>
+                                    </p>
+                                    <span class="showUsers"
+                                          style="color:#7e7e7e;overflow:hidden;float:left;height:17px;margin-bottom: 20px;margin-top:5px;"
+                                          id="babysays-11601572825361">
+                                        <span style="display:inline;color:#7e7e7e;word-break:break-all;word-wrap: break-word;">
+                                            接收人：&nbsp;董金龙
+                                        </span>
+                                    </span>
+                                </td>
+                                <td width="50px" style="color:#9b9b9b;border-bottom:1px solid #e7e7e7;"></td>
+                                <td width="210px" style="color:#9b9b9b;border-bottom:1px solid #e7e7e7;text-overflow:ellipsis;"
+                                    align="left" title="时间/操作">
+                                    <!--时间-->
+                                    <input type="text" class="jedit" value="2020-09-30 12:24:44">
+                                    <span class="jshow" style="display: none;">2020-09-30&nbsp;12:24:44</span>
+                                    <!--节点信息-->
+                                    <p>
+                                        <span style="color:#089bfd;text-overflow:ellipsis;width: 160px;">
+                                            [辅导员初审/&nbsp;批准]
+                                        </span>
+
+                                    </p>
+                                </td>
+                                <td width="138px" align="center" style="border-bottom:1px solid #e7e7e7;">
+                                    <table width="100%">
+                                        <tbody>
+                                        <tr>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="liststyle liststyle1" cellspacing="0" style="margin:0;width:100%;">
+        <tbody>
+            <tr height="10px">
+                <td colspan="2" style="background:#ffffff;"></td>
+            </tr>
+            <tr class="datalight">
+                <td colspan="4" style="">
+                    <table style="background:#fff" width="100%" border="0" cellspacing="0" cellpadding="0"
+                           class="singleSignTbl">
+                        <tbody>
+                            <tr style=" vertical-align: top;">
+                                <td width="27px">&nbsp;</td>
+        <!--
+                                <td width="40px" align="left" class="userheadimg" style="display:none;background-color: transparent !important; border-bottom:1px solid #e7e7e7;">
+                                    &lt;!&ndash; 人员头像 &ndash;&gt;
+                                    <div style="margin-top: 5px;">
+                                        <img src="img/icon_m_wev8.jpg" style="width:30px;height:30px;line-height:30px;background-size: 30px;border-radius:20px;">
+                                    </div>
+                                </td>-->
+
+                                <td width="160px" align="left" style="color:#099cff;border-bottom:1px solid #e7e7e7; padding-bottom: 15px">
+                                    <div style="width:100px;">
+                                        <!-- 人员姓名 START -->
+                                        <span>
+                                            <div style="height:1px;"></div>
+                                                <a class="jname" id="user_FCKsigniframe174762" href="javaScript:" style="color:#099cff">
+                                                    我的姓名
+                                                </a>
+                                        </span>
+                                    </div>
+                                    <p>
+                                        <a href="" target="_Blank" class="jclass department_href">00软工00</a>
+                                    </p>
+                                </td>
+
+                                <td name="signContentTd"
+                                    style="background-color: transparent !important; color:#323232;border-bottom:1px solid #e7e7e7;word-break:break-all;">
+                                    <span>
+                                        <span class="showUsers" style="color:#7e7e7e;overflow:hidden;float:left;height:17px;margin-bottom: 20px;" id="babysays-11601572825366">
+                                            <span style="display:inline;color:#7e7e7e;word-break:break-all;word-wrap: break-word;">
+                                                接收人：&nbsp;<span class="jteacher">辅导员姓名</span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </td>
+
+                                <td width="50px" style="color:#9b9b9b;border-bottom:1px solid #e7e7e7;"></td>
+
+                                <td width="210px" style="color:#9b9b9b;border-bottom:1px solid #e7e7e7;text-overflow:ellipsis;"
+                                    align="left" title="时间/操作">
+                                    <!--时间-->
+                                    <input type="text" class="jedit" value="2020-09-30 11:48:10">
+                                    <span class="jshow" style="display: none;">2020-09-30&nbsp;11:48:10</span>
+                                    <!--节点信息-->
+                                    <p>
+                                        <span style="color:#089bfd;text-overflow:ellipsis;width: 160px;">[申请人/&nbsp;提交]</span>
+                                    </p>
+                                </td>
+                                <td width="138px" align="center" style="border-bottom:1px solid #e7e7e7;">
+                                    <table width="100%">
+                                        <tbody>
+                                        <tr>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div style="padding-top: 1px;" class="pholder" id="pagesplitblock_0">
+    <div id="div_pager_0" class="div_pager">
+        <div align="right">
+            <span class="e8_pageinfo" style="font-weight:normal;padding:0px;margin:0px;">
+                <span style="padding:0px;margin:0px;font-weight:normal;"
+                      class="e8_numberspan weaverTablePrevPageOfDisabled weaverTablePage">&lt;</span>
+                <span _jumpto="div_pager_0" style="font-weight:normal;padding:0px;margin:0px;"
+                      class="e8_numberspan weaverTableCurrentPageBg">1</span>
+                <span style="padding:0px;margin:0px;font-weight:normal;"
+                      class="e8_numberspan weaverTableNextPageOfDisabled weaverTablePage">&gt;</span>
+                <span class="e8_numberspan" style="font-weight:normal;padding:0px;margin:0px;">第</span>
+                <span class="e8_numberspan"
+                      style="font-weight:normal;display:inline-block;width:30px;height:20px;border:0px solid #DFDFDF;margin:-1px 1px;padding:0px;position:relative;left:0px;top:5px;">
+                    <input type="button" id="btn_godiv_pager_0" class="btn_go" onclick="kkpager.gopage();"
+                           style="font-weight:normal;width:30px;height:22px;line-height:22px;padding:0px;font-family:arial,宋体,sans-serif;text-align:center;border:0px;background-color:#0063DC;color:#FFF;position:absolute;left:0px;top:-1px;display:none;"
+                           value="跳转">
+                    <input type="text" id="btn_go_inputdiv_pager_0" class="btn_go_input"
+                           style="background-color:#f8f8f8;font-weight:normal;width:30px;height:20px;text-align:center;border:1px;position:absolute;left:0px;top:0px;outline:none;"
+                           value="1">
+                </span>
+                <span class="e8_numberspan" style="font-weight:normal;padding:0px;margin:0px;">页</span>
+                <span class="e8_splitpageinfo" style="padding:0px;margin:0px;font-weight:normal;">
+                    <span style="font-weight:normal;padding:0px;margin:0px;position:relative;TEXT-DECORATION:none;height:21px;padding-top:2px;">
+                        <div class="K13_select" style="width: 40px; z-index: 99;">
+                            <div class="K13_select_checked">
+                                <input class="_pageSizeInput" autocomplete="off" maxlength="3" style="width:40px;background:transparent;text-align:center;border:1px solid transparent;color:#fff;height:26px;vertical-align:top;" type="text" value="10" name="pageSizeSeldiv_pager_0inputText" id="pageSizeSeldiv_pager_0inputText">
+                            </div>
+                        </div>
+                        <span>条/页&nbsp;|&nbsp;共2条</span>
+                    </span>
+                </span>
+                <span class="e8_splitpageinfo" style="padding:0px;margin:0px;">&nbsp;</span>
+            </span>
+        </div>
+    </div>
+    <div class="div_pagerhider" style="height: 30px; margin-top: 45px;"></div>
+</div>
+
+</body>
+</html>

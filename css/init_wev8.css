@@ -1,0 +1,10 @@
+@IMPORT url("/files/requestView_wev8.css");
+@IMPORT url("/css/ecology8/request/seachBody_wev8.css");
+@IMPORT url("/css/ecology8/request/hoverBtn_wev8.css");
+@IMPORT url("/wui/theme/ecology8/jquery/js/e8_zDialog_btn_wev8.css");
+@IMPORT url("/css/ecology8/request/searchInput_wev8.css");
+@IMPORT url("/css/commonCss_wev8.css");
+@IMPORT url("/wui/common/css/w7OVFont_wev8.css");
+html {
+	height:100%;
+}
